@@ -13,6 +13,7 @@ All you need to do is to run this command in project folder:
 npm run start:dev
 ```
 After running this command you are going to see something like this in your console:
+ <img width="796" alt="Screen Shot 2022-03-19 at 8 49 10 PM" src="https://user-images.githubusercontent.com/43247296/159132560-83e0ae82-28ee-4f26-a369-da2953904ed3.png">
 
 ### What this `npm run start:dev` command is doing?
 It is simple nodejs script that does these things:
@@ -22,6 +23,7 @@ It is simple nodejs script that does these things:
 - bundle typescript files in `src` folder
 - watch changes of `schema.graphql` on redeploy schema.
 - watch changes in `src` folder and run webpack to create javascript bundle.
+- show you docker container logs, this is because if you are using `console.log` in your lambda script you expect to see that log in here.
 
 ## Lambda Script
 I have used dgraph 21.03 for this project and this version needs external lambda container. You can checkout `docker-compose.yml` file to see the lambda container, also this address `dist/bundle.js` is mounted as a volume to this container. Instead of using `javascript` I used `typescript` because it was safer and you can check this [stackoverflow issue](https://stackoverflow.com/questions/12694530/what-is-typescript-and-why-would-i-use-it-in-place-of-javascript) to know more about differences.
