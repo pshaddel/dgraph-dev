@@ -1,0 +1,37 @@
+{
+	"name": "dgraph-dev",
+	"version": "0.0.1",
+	"description": "",
+	"main": "script.js",
+	"scripts": {
+		"test": "jest --forceExit --detectOpenHandles --runInBand",
+		"lint": "eslint . --fix --ext .ts",
+		"build:production": "npx webpack --mode production --target webworker",
+		"build:development": "npx webpack --mode development --target webworker",
+		"prestart:dev": "docker-compose up -d",
+		"start:dev": "node dev.js",
+		"poststart:dev": "docker-compose down -d",
+		"pretty": "prettier --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:pshaddel/dgraph-dev.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^16.11.6",
+		"@typescript-eslint/eslint-plugin": "^5.3.0",
+		"cli-color": "^2.0.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"prettier": "^2.4.1",
+		"ts-loader": "^9.2.6",
+		"typescript": "^4.5.5",
+		"webpack": "^5.67.0",
+		"webpack-cli": "^4.9.2"
+	},
+	"dependencies": {
+	}
+}

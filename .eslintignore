@@ -1,0 +1,13 @@
+mongo-data
+node_modules
+bin
+./script.js
+./build.js
+./package.json
+./package-lock.json
+./README.md
+./LICENSE
+./CHANGELOG.md
+./CONTRIBUTING.md
+./jest.config.js
+tsconfig.json

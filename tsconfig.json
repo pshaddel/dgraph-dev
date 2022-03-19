@@ -1,0 +1,25 @@
+{
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+	"compilerOptions": {
+		"target": "ESNEXT",
+		"module": "commonjs",
+		"rootDir": ".",
+		"strict": true,
+		"declaration": false,
+		"noImplicitAny": false,
+		"strictNullChecks": false,
+		"strictFunctionTypes": false,
+		"strictBindCallApply": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"noUnusedLocals": true,
+		"esModuleInterop": true,
+		"inlineSourceMap": true,
+		"inlineSources": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": false
+	}
+}
