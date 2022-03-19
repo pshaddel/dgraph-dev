@@ -2,7 +2,6 @@ const { exec, spawn } = require("child_process");
 const fs = require('fs');
 const clc = require("cli-color");
 
-
 const ls = spawn('docker-compose', ['up']);
 
 ls.stdout.on('data', (data) => {
