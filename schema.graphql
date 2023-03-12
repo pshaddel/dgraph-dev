@@ -1,16 +1,21 @@
-type Task @auth(
-    query: { rule: """
-        query($USER: String!) {
-            queryTask {
-                user(filter: { username: { eq: $USER } }) {
-                    __typename
-                }
-            }
-        }"""}), {
-    id: ID!
-    title: String! @search(by: [fulltext])
-    completed: Boolean! @search
-    user: User!
+type Task
+  @auth(
+    query: {
+      rule: """
+      query($USER: String!) {
+          queryTask {
+              user(filter: { username: { eq: $USER } }) {
+                  __typename
+              }
+          }
+      }
+      """
+    }
+  ) {
+  id: ID!
+  title: String! @search(by: [fulltext])
+  completed: Boolean! @search
+  user: User!
 }
 
 type User {
