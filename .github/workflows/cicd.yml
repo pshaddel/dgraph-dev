@@ -25,4 +25,4 @@ jobs:
       - name: Run Containers
         run: docker-compose up -d
       - name: Validate Schema
-        run: sh validate_schema.sh
+        run: bash validate_schema.sh
