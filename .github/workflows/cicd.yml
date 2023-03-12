@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 16
       - name: Run Containers
-      - run: docker-compose up -d
+        run: docker-compose up -d
       - name: Install Packages
         run: npm install
       - name: Lint
