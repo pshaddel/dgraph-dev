@@ -1,8 +1,5 @@
-// @ts-ignore
-self.addGraphQLResolvers({
-});
-// @ts-ignore
-self.addWebHookResolvers({
-});
+self.addGraphQLResolvers({});
+
+self.addWebHookResolvers({});
 
 console.log("Lambda Loaded");
