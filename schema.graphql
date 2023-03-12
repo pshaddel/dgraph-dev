@@ -69,4 +69,16 @@ type Posts
   content: String!
 }
 
+# Example of having some of the GraphQL operations disabled for a type
+type Error
+  @generate( # How to disable delete and update mutations for this type
+    query: { get: true, query: true, aggregate: true }
+    mutation: { add: true, delete: false, update: false }
+    subscription: true
+  ) {
+  ErrorID: ID!
+  errorDetail: String
+  errorDateTime: DateTime @search
+}
+
 # Dgraph.Authorization X-Auth-Token https://dgraph.io/jwt/claims RS256 "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp/qw/KXH23bpOuhXzsDp\ndo9bGNqjd/OkH2LkCT0PKFx5i/lmvFXdd04fhJD0Z0K3pUe7xHcRn1pIbZWlhwOR\n7siaCh9L729OQjnrxU/aPOKwsD19YmLWwTeVpE7vhDejhnRaJ7Pz8GImX/z/Xo50\nPFSYdX28Fb3kssfo+cMBz2+7h1prKeLZyDk30ItK9MMj9S5y+UKHDwfLV/ZHSd8m\nVVEYRXUNNzLsxD2XaEC5ym2gCjEP1QTgago0iw3Bm2rNAMBePgo4OMgYjH9wOOuS\nVnyvHhZdwiZAd1XtJSehORzpErgDuV2ym3mw1G9mrDXDzX9vr5l5CuBc3BjnvcFC\nFwIDAQAB\n-----END PUBLIC KEY-----"
