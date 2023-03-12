@@ -24,4 +24,49 @@ type User {
   tasks: [Task] @hasInverse(field: user)
 }
 
+# How to use the auth rule - In this case everyone can query the users ranking but
+type UserRank
+  @withSubscription # This enables the subscription for this type and anyone can wait subscribe to changes of this type
+  @auth(
+    add: { rule: "{$roles: { eq: \"superadmin\" } }" }
+    delete: { rule: "{$roles: { eq: \"superadmin\" } }" }
+    update: { rule: "{$roles: { eq: \"superadmin\" } }" }
+  ) {
+  UserRankID: ID!
+  user: User!
+  rank: Float!
+  created_at: DateTime @search
+  updated_at: DateTime @search
+}
+
+# Example of how to use or condition for multiple roles
+type Posts
+  @auth(
+    add: {
+      or: [
+        { rule: "{$roles: { eq: \"operator\" } }" }
+        { rule: "{$roles: { eq: \"admin\" } }" }
+        { rule: "{$roles: { eq: \"superadmin\" } }" }
+      ]
+    }
+    delete: {
+      or: [
+        { rule: "{$roles: { eq: \"operator\" } }" }
+        { rule: "{$roles: { eq: \"admin\" } }" }
+        { rule: "{$roles: { eq: \"superadmin\" } }" }
+      ]
+    }
+    update: {
+      or: [
+        { rule: "{$roles: { eq: \"operator\" } }" }
+        { rule: "{$roles: { eq: \"admin\" } }" }
+        { rule: "{$roles: { eq: \"superadmin\" } }" }
+      ]
+    }
+  ) {
+  PostID: ID
+  title: String!
+  content: String!
+}
+
 # Dgraph.Authorization X-Auth-Token https://dgraph.io/jwt/claims RS256 "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp/qw/KXH23bpOuhXzsDp\ndo9bGNqjd/OkH2LkCT0PKFx5i/lmvFXdd04fhJD0Z0K3pUe7xHcRn1pIbZWlhwOR\n7siaCh9L729OQjnrxU/aPOKwsD19YmLWwTeVpE7vhDejhnRaJ7Pz8GImX/z/Xo50\nPFSYdX28Fb3kssfo+cMBz2+7h1prKeLZyDk30ItK9MMj9S5y+UKHDwfLV/ZHSd8m\nVVEYRXUNNzLsxD2XaEC5ym2gCjEP1QTgago0iw3Bm2rNAMBePgo4OMgYjH9wOOuS\nVnyvHhZdwiZAd1XtJSehORzpErgDuV2ym3mw1G9mrDXDzX9vr5l5CuBc3BjnvcFC\nFwIDAQAB\n-----END PUBLIC KEY-----"
