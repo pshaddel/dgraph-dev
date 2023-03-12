@@ -1,0 +1,8 @@
+{
+  "roots": ["<rootDir>/src"],
+  "transform": {
+    "^.+\\.tsx?$": "@swc/jest"
+  },
+  "testRegex": "(src/__tests__/.*|(\\.|/))test.ts$",
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+}
