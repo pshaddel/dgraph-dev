@@ -39,6 +39,10 @@ I have used [prettier](https://prettier.io/) as formatter and [eslint](https://e
 
 For bundling I have used [webpack 5](https://webpack.js.org/blog/2020-10-10-webpack-5-release/).
 
+## Lambda Function Development with Typescript
+
+Typescript is used in this project for developing lambda functions in order to avoid bugs. We are also using `ts-reset` which is a nice package for removing so many `any` types that come as default in some of node functions like `JSON.parse`
+
 ## Services and Default Ports
 
 - Ratel:<b>9000</b> use `localhost:9000` for accessing ratel and executing dql commands.
