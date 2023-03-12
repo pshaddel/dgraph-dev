@@ -16,13 +16,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
-      - name: Run Containers
-        run: docker-compose up -d
       - name: Install Packages
         run: npm install
       - name: Lint
         run: npm run lint
       - name: Build Lambda Bundle
         run: npm run build:production
+      - name: Run Containers
+        run: docker-compose up -d
       - name: Validate Schema
         run: sh validate_schema.sh
