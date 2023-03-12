@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "mquandalle.graphql",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vivaxy.vscode-conventional-commits",
+    "pshaddel.conventional-branch",
+    "firsttris.vscode-jest-runner"
+  ]
+}
