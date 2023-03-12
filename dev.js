@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 const { exec, spawn } = require("child_process");
 const fs = require("fs");
 const clc = require("cli-color");
