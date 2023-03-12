@@ -1,3 +1,5 @@
+import "@total-typescript/ts-reset";
+
 self.addGraphQLResolvers({});
 
 self.addWebHookResolvers({});
