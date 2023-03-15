@@ -71,7 +71,6 @@ fs.watch("./src", (event, path) => {
 });
 
 fs.watch("./schema.graphql", () => {
-  isDeployingSchema = true;
   console.log(
     now(),
     clc.yellow("Schema Change Detected: ", "Redeploying Schema")
