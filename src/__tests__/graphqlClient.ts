@@ -8,28 +8,26 @@ const dgraphConf = {
   Algo: "HS256"
 };
 
-const headerGenerator = (Role) => {
+const headerGenerator = (
+  payload: Record<string, string | number | null> = {}
+) => {
   const headers = {
     "Content-Type": "application/json"
   };
-  headers[dgraphConf.Header] = jwt.sign(
-    { ROLE: Role },
-    dgraphConf.VerificationKey,
-    { algorithm: dgraphConf.Algo }
-  );
+  headers[dgraphConf.Header] = jwt.sign(payload, dgraphConf.VerificationKey, {
+    algorithm: dgraphConf.Algo
+  });
   return headers;
 };
 
 export const query = async ({
-  functionName,
   query,
   variables,
-  Role = "USER"
+  jwtPayload = {}
 }: {
-  functionName: string;
   query: string;
-  variables?: Record<string, any>;
-  Role?: string;
+  variables?: Record<string, unknown>;
+  jwtPayload?: Record<string, string | number | null>;
 }) => {
   const result = await axios.post(
     API_URL,
@@ -38,34 +36,34 @@ export const query = async ({
       variables
     },
     {
-      headers: headerGenerator(Role)
+      headers: headerGenerator(jwtPayload)
     }
   );
-  const data = result.data.data ? result.data.data[functionName] : null;
+  const data = result.data.data;
   const errors = result.data.errors;
   return { data, errors };
 };
 
-export const mutation = async (
-  functionName,
-  typeName,
-  query,
+export async function mutation({
+  mutation,
   variables,
-  Role = "USER"
-) => {
+  jwtPayload = {}
+}: {
+  mutation: string;
+  variables?: unknown;
+  jwtPayload?: Record<string, string | number | null>;
+}) {
   const result = await axios.post(
     API_URL,
     {
-      query,
+      query: mutation,
       variables
     },
     {
-      headers: headerGenerator(Role)
+      headers: headerGenerator(jwtPayload)
     }
   );
-  const data = result.data?.data[functionName]
-    ? result.data.data[functionName][typeName]
-    : result.data?.data[functionName];
+  const data = result.data?.data;
   const errors = result.data.errors;
   return { data, errors };
-};
+}

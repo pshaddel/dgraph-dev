@@ -3,11 +3,10 @@ import { query } from "./graphqlClient";
 describe("getUsers", () => {
   it("should return a list of users", async () => {
     const { data, errors } = await query({
-      functionName: "queryUser",
       query: `query{queryUser {name}}`
     });
     assert.strictEqual(errors, undefined);
-    assert.strictEqual(typeof data, "object");
-    assert.strictEqual(Array.isArray(data), true);
+    assert.strictEqual(typeof data.queryUser, "object");
+    assert.strictEqual(Array.isArray(data.queryUser), true);
   });
 });
