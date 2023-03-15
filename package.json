@@ -8,9 +8,9 @@
     "lint": "eslint . --fix --ext .ts",
     "build:production": "npx webpack --mode production --target webworker",
     "build:development": "npx webpack --mode development --target webworker",
-    "prestart:dev": "docker-compose up -d",
+    "prestart:dev": "docker compose up -d",
     "start:dev": "node dev.js",
-    "poststart:dev": "docker-compose down -d",
+    "poststart:dev": "docker compose down -d",
     "pretty": "prettier --write ."
   },
   "repository": {
