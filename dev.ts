@@ -63,7 +63,7 @@ fs.watch("./src", (event, path) => {
   console.log(
     now(),
     clc.yellow("Code Change Detected: "),
-    "Redeploying your Lambda Script",
+    "Redeploying Lambda Script",
     event,
     clc.red(path)
   );
