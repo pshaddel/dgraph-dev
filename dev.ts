@@ -64,7 +64,9 @@ const deployLambdaScript = () => {
 deploySchema(true);
 deployLambdaScript();
 
+// deploy only when .ts files change
 fs.watch("./src", (event, path) => {
+  if (path.indexOf(".ts") == -1) return;
   console.log(
     now(),
     clc.yellow("Code Change Detected: "),
