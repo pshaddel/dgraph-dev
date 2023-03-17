@@ -55,6 +55,9 @@ You can send graphql requests to this address: `http://localhost:8080/graphql`
 
 On Ratel set Dgraph server URL to: `http://localhost:8080`
 
+## Examples with Tests
+- How to use Authentication
+- How to use Lambda Scripts
 ## Contribution
 
 Feel free to open issues and pull requests.
