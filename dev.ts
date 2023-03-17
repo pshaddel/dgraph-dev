@@ -10,7 +10,12 @@ ls.stdout.on("data", (data) => {
   console.log(`${clc.bgBlue("Docker  Container   Logs")} ${data}`);
 });
 
-const deploySchema = () => {
+const deploySchema = async (isFirstTimeDeployingSchema = false) => {
+  if (isFirstTimeDeployingSchema) {
+    // sleep for 20 seconds to allow the docker container to start up
+    await new Promise((resolve) => setTimeout(resolve, 20000));
+    isFirstTimeDeployingSchema = false;
+  }
   exec(
     "curl -X POST localhost:8080/admin/schema --data-binary '@schema.graphql'",
     (error, stdout, stderr) => {
@@ -56,7 +61,7 @@ const deployLambdaScript = () => {
   });
 };
 
-deploySchema();
+deploySchema(true);
 deployLambdaScript();
 
 fs.watch("./src", (event, path) => {
