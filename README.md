@@ -2,12 +2,17 @@
 
 A ready to use local development environment for Dgraph project
 
+## Summary of Important features
+ - Schema Hot Reload
+ - Lambda Script Hot Reload
+ - All Logs are shown together
+ - Ready-To-Use Pipeline that contains[install, lint, test, schema validation]
+
 ## Prerequisites
 
 - <b>Nodejs</b>: You can install the latest version [here](https://nodejs.org/en/)
 - <b>npm</b>:
 - <b>docker</b>: Install docker engine from [here](https://docs.docker.com/engine/install/).
-- <b>docker-compose</b>: You can find the latest version of docker-compose [here](https://docs.docker.com/compose/install/)
 
 ## Quick Start
 
