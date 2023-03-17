@@ -25,28 +25,24 @@ npm run start:dev
 After running this command you are going to see something like this in your console:
 <img width="796" alt="Screen Shot 2022-03-19 at 8 49 10 PM" src="https://user-images.githubusercontent.com/43247296/159132560-83e0ae82-28ee-4f26-a369-da2953904ed3.png">
 
-### What this `npm run start:dev` command is doing?
+### Explaining Command: `npm run start:dev`
 
-It is simple nodejs script that does these things:
+It is nodejs script that does these things:
+- In case this is the first time you are running it, it creates a empty `bundle.js` file so Lambda container does not fail.
+- It runs `docker compose up` and one `alpha`, one `zero`, one `lambda` is going to start running detached.
+- Deploy Schema(schema.graphql)
+- Bundle Typescript files in `src` folder
+- Watch changes of `schema.graphql` to Redeploy Schema with each change.
+- Watch changes in `src` folder and run webpack to create Javascript Bundle.
+- Show you logs of all Docker Containers.
 
-- before starting this nodejs script it runs `docker-compose up` and one alpha, one zero, one lambda is going to start running detached.
-- deploy schema
-- bundle typescript files in `src` folder
-- watch changes of `schema.graphql` on redeploy schema.
-- watch changes in `src` folder and run webpack to create javascript bundle.
-- show you docker container logs, this is because if you are using `console.log` in your lambda script you expect to see that log in here.
-
-## Lambda Script
-
-I have used dgraph 21.03 for this project and this version needs external lambda container. You can checkout `docker-compose.yml` file to see the lambda container, also this address `dist/bundle.js` is mounted as a volume to this container. Instead of using `javascript` I used `typescript` because it was safer and you can check this [stackoverflow issue](https://stackoverflow.com/questions/12694530/what-is-typescript-and-why-would-i-use-it-in-place-of-javascript) to know more about differences.
-
-I have used [prettier](https://prettier.io/) as formatter and [eslint](https://eslint.org/) as linter for safer and cleaner code.
-
-For bundling I have used [webpack 5](https://webpack.js.org/blog/2020-10-10-webpack-5-release/).
-
-## Lambda Function Development with Typescript
-
-Typescript is used in this project for developing lambda functions in order to avoid bugs. We are also using `ts-reset` which is a nice package for removing so many `any` types that come as default in some of node functions like `JSON.parse`
+## Typescript Setup for Lambda Script
+- Dgraph Lambda Version: `Dgraph@v22`
+- Javascript Bundle file is created in `dist/bundle.js` and mounted to the docker container
+I have used  for this project and this version needs external lambda container.
+- Prettier as Formatter: [prettier](https://prettier.io/) 
+- ESLint as Linter : [eslint](https://eslint.org/)
+- Bundling with Webpack 5: [webpack 5](https://webpack.js.org/blog/2020-10-10-webpack-5-release/).
 
 ## Services and Default Ports
 
