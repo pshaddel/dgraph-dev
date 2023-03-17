@@ -8,8 +8,8 @@
     "lint": "eslint . --fix --ext .ts",
     "build:production": "npx webpack --mode production --target webworker",
     "build:development": "npx webpack --mode development --target webworker",
-    "prestart:dev": "docker compose up -d",
-    "start:dev": " node -r @swc-node/register dev.ts",
+    "prestart:dev": "sh first_time_bundle_creator.sh && docker compose up -d",
+    "start:dev": "node -r @swc-node/register dev.ts",
     "poststart:dev": "docker compose down -d",
     "pretty": "prettier --write ."
   },
