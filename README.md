@@ -8,6 +8,11 @@ A ready to use local development environment for Dgraph project
  - All Logs are shown together
  - Ready-To-Use Pipeline that contains[install, lint, test, schema validation]
 
+### Schema Hot Reload
+<p align="center">
+<img src="https://user-images.githubusercontent.com/43247296/225939441-943bdf1a-76b3-48ed-bfd9-e3fda82980f8.gif" width="75%">  
+</p>
+
 ## Prerequisites
 
 - <b>Nodejs</b>: You can install the latest version [here](https://nodejs.org/en/)
@@ -16,14 +21,17 @@ A ready to use local development environment for Dgraph project
 
 ## Quick Start
 
-All you need to do is to run this command in project folder:
+First install the packages:
+
+```bash
+npm install
+```
+
+and then all you need to do is to run this command in project folder:
 
 ```bash
 npm run start:dev
 ```
-
-After running this command you are going to see something like this in your console:
-<img width="796" alt="Screen Shot 2022-03-19 at 8 49 10 PM" src="https://user-images.githubusercontent.com/43247296/159132560-83e0ae82-28ee-4f26-a369-da2953904ed3.png">
 
 ### Explaining Command: `npm run start:dev`
 
