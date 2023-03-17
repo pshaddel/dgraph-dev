@@ -1,6 +1,6 @@
 # Dgraph Data
 dgraph_data
-
+.vscode/settings.json
 # Logs
 logs
 *.log
