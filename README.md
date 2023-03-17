@@ -13,6 +13,12 @@ A ready to use local development environment for Dgraph project
 <img src="https://user-images.githubusercontent.com/43247296/225939441-943bdf1a-76b3-48ed-bfd9-e3fda82980f8.gif" width="75%">  
 </p>
 
+### Lambda Script Hot Reload
+<p align="center">
+<img src="https://user-images.githubusercontent.com/43247296/226066283-a39fa22f-fb2b-4107-aaec-f4fc3a6f9378.gif" width="75%">  
+</p>
+
+
 ## Prerequisites
 
 - <b>Nodejs</b>: You can install the latest version [here](https://nodejs.org/en/)
