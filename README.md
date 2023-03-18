@@ -3,10 +3,12 @@
 A ready to use local development environment for Dgraph project
 
 ## Summary of Important features
- - Schema Hot Reload
- - Lambda Script Hot Reload
- - All Logs are shown together
- - Ready-To-Use Pipeline that contains[install, lint, test, schema validation]
+
+ - <b>Schema Hot Reload</b>
+ - <b>Lambda Script Hot Reload</b>
+ - <b>Multi-Schema Support</b>
+ - <b>All Logs are shown together</b>
+ - <b>Ready-To-Use Pipeline that contains[install, lint, test, schema validation]</b>
 
 ### Schema Hot Reload
 <p align="center">
@@ -17,6 +19,13 @@ A ready to use local development environment for Dgraph project
 <p align="center">
 <img src="https://user-images.githubusercontent.com/43247296/226066283-a39fa22f-fb2b-4107-aaec-f4fc3a6f9378.gif" width="75%">  
 </p>
+
+### Multi-Schema Support
+<p align="center">
+<img src="https://user-images.githubusercontent.com/43247296/226101238-a4ad6771-1a52-432e-9862-183437f78270.gif" width="75%">  
+</p>
+
+For using this feature put ```schema.graphql``` in `gitignore` and start creating files with `.graphql` in `src` folder. Then if you run `npm run start:dev` with each change in one of these files it starts merging them into one file: `schema.graphql`. This file should exists in working directory.
 
 
 ## Prerequisites
@@ -47,6 +56,7 @@ It is nodejs script that does these things:
 - Deploy Schema(schema.graphql)
 - Bundle Typescript files in `src` folder
 - Watch changes of `schema.graphql` to Redeploy Schema with each change.
+- Watch changes in `*.graphql` files in `src` folder in merge these files and overwrites `schema.graphql`
 - Watch changes in `src` folder and run webpack to create Javascript Bundle.
 - Show you logs of all Docker Containers.
 
